@@ -1,0 +1,84 @@
+.holographic-bg {
+  background: linear-gradient(180deg, rgba(0, 24, 69, 0.9) 0%, rgba(0, 8, 20, 0.95) 100%);
+  position: relative;
+  overflow: hidden;
+}
+
+.holographic-bg::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: radial-gradient(circle at 50% 50%, rgba(32, 156, 255, 0.1) 0%, transparent 60%),
+    linear-gradient(90deg, transparent 0%, rgba(32, 156, 255, 0.05) 50%, transparent 100%);
+  pointer-events: none;
+  animation: holographic-scan 8s linear infinite;
+}
+
+.holographic-grid {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-image: linear-gradient(rgba(32, 156, 255, 0.05) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(32, 156, 255, 0.05) 1px, transparent 1px);
+  background-size: 20px 20px;
+  mask-image: radial-gradient(circle at 50% 50%, black 0%, transparent 80%);
+  pointer-events: none;
+}
+
+.holographic-text {
+  color: #ff3e3e;
+  text-shadow: 0 0 10px rgba(255, 62, 62, 0.5), 0 0 20px rgba(255, 62, 62, 0.3), 0 0 30px rgba(255, 62, 62, 0.2);
+  font-family: "Inter", sans-serif;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+}
+
+.holographic-circle {
+  position: absolute;
+  width: 300px;
+  height: 300px;
+  border-radius: 50%;
+  border: 2px solid rgba(32, 156, 255, 0.2);
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  animation: rotate 20s linear infinite;
+}
+
+.holographic-circle::before {
+  content: "";
+  position: absolute;
+  top: -2px;
+  left: -2px;
+  right: -2px;
+  bottom: -2px;
+  border-radius: 50%;
+  border: 2px solid transparent;
+  border-top-color: rgba(32, 156, 255, 0.4);
+  animation: rotate 10s linear infinite;
+}
+
+@keyframes holographic-scan {
+  0% {
+    opacity: 0.5;
+    transform: translateY(-100%);
+  }
+  100% {
+    opacity: 0.8;
+    transform: translateY(100%);
+  }
+}
+
+@keyframes rotate {
+  0% {
+    transform: translate(-50%, -50%) rotate(0deg);
+  }
+  100% {
+    transform: translate(-50%, -50%) rotate(360deg);
+  }
+}
