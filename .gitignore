@@ -1,0 +1,6 @@
+# Node & python mixed ignores
+node_modules/
+__pycache__/
+*.pyc
+.DS_Store
+.vscode/
